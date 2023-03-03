@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [inputBoxValue, setInputBoxValue] = useState('');
+  const [result, setResult] = useState('No input yet');
+
+  const handleChange = (event) => {
+    setInputBoxValue(event.target.value);
+    console.log(inputBoxValue);
+  }
+
+  const handleClick = (event) => {
+    let res = Number(inputBoxValue)*2;
+    setResult(res);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="container">
+        <h1>Input👇🏿</h1>
+        <label htmlFor="inbox">Enter a number below👇🏿</label>
+        <input
+          type="text"
+          name="inbox"
+          id="inbox"
+          onChange={handleChange}
+        />
+        <button
+          onClick={handleClick}
         >
-          Learn React
-        </a>
-      </header>
+          Double!
+        </button>
+        <h1>Output👇🏿</h1>
+        <p className="output-field">{result}</p>
+      </div>
     </div>
   );
 }
