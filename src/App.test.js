@@ -41,7 +41,7 @@ test('that the user can click the button and double', async () => {
 
   await userEvent.click(inputButton);
   await waitFor(async() => {
-    const outputNumber = screen.getByText(/15/);
+    const outputNumber = screen.getByText(/14/);
     expect(outputNumber).toBeInTheDocument();
   });
 })
