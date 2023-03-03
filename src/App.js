@@ -8,7 +8,6 @@ function App() {
 
   const handleChange = (event) => {
     setInputBoxValue(event.target.value);
-    console.log(inputBoxValue);
   }
 
   const handleClick = (event) => {
